@@ -1,0 +1,25 @@
+/* common */
+body{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;margin:0; padding:0;}
+#ground{width:90%;margin:0 auto;}
+fieldset,legend {border:1px solid #DDD;}
+legend{padding:2px 8px;}
+legend.slide{cursor:pointer;}
+fieldset{margin:10px 0;}
+
+/* pagination */
+.jq-pagination-wrap{width:95%;float:left;}
+.jq-pagination-nav{margin-top:15px;float:left;}
+.jq-pagination-nav a{cursor:pointer;background:#CCC;margin:0 1px;text-align:center; padding:2px 5px;font-size:14px;border-radius:3px 0;}
+.jq-pagination-nav a.jq-pagination-current-key{background:#DDD;color:#AAA;cursor:default;}
+.item{width:25%;margin:5px 0;float:left;}
+
+/* floattop */
+.boxwrap{width:99%;padding:5px;}
+.box{border:1px solid #AAA;background:#FFF;margin:10px;padding:10px;}
+.box span{background:#EEE;border:1px solid #EEE;display:block;padding:5px;font-family:"Comic Sans MS", cursive;}
+
+/* replenish */
+.input,.label{width:33%;float:left;}
+.input input,textarea,select{font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;width:50%;}
+input[type="submit"]{display:none;}
+textarea{padding:5px;resize:none;}
