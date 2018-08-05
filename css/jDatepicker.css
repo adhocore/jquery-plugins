@@ -1,113 +1,111 @@
-/* 
-* jQuery-NepaliDatepicker-plugin CSS
-*
-* @author Jitendra Adhikari
-* @email jiten.adhikary@gmail.com
-*
+/**
+ * jQuery-NepaliDatepicker-plugin CSS
+ *
+ * @author Jitendra Adhikari
+ * @email jiten.adhikary@gmail.com
+ *
 */
-
 .jDatepicker-div {
-    padding:3px;
-    background:#fff;
-    border:1px solid #e3e3e3;
-    border-radius:5px;	
-    width:198px;
-    display:none;
-    z-index:2;
-    position:absolute;
+  padding:3px;
+  background:#fff;
+  border:1px solid #e3e3e3;
+  border-radius:5px;
+  width:198px;
+  display:none;
+  z-index:2;
+  position:absolute;
 }
 
 .jDatepicker-table {
-    margin-top:0px;
-    width:160px;
+  margin-top:0px;
+  width:160px;
 }
 
 .jDatepicker-table thead tr {
-    border:1px solid #bbb;
+  border:1px solid #bbb;
 }
 
 .jDatepicker-table th {
-    background:#d4d4d4;
-    font-family:Verdana, Geneva, sans-serif;
-    font-size:14px;
-    padding:5px 8px;
+  background:#d4d4d4;
+  font-family:Verdana, Geneva, sans-serif;
+  font-size:14px;
+  padding:5px 8px;
 }
 
 .jDatepicker-table th.disabled {
-    background:#bbb;
-    color:#888;
+  background:#bbb;
+  color:#888;
 }
 
 .jDatepicker-nav {
-    background:#bbb;
-    cursor:pointer;
-    height:24px;
-    border-radius:3px 3px 0 0;	
-    margin-bottom:0;	
-    width:198px;
+  background:#bbb;
+  cursor:pointer;
+  height:24px;
+  border-radius:3px 3px 0 0;
+  margin-bottom:0;
+  width:198px;
 }
 
-.jDatepicker-nav span{
-    text-align:center;
-    width:15px;
+.jDatepicker-nav span {
+  text-align:center;
+  width:15px;
 }
 
-.jDatepicker-nav span.disabled{
-    color:#888;
+.jDatepicker-nav span.disabled {
+  color:#888;
 }
 
 .jDatepicker-prevnav {
-    float:left;
-    width:50px;
+  float:left;
+  width:50px;
 }
 
 .jDatepicker-prevnav span {
-    float:left;
+  float:left;
 }
 
-.jDatepicker-label{
-    text-align:center;
-    float:left;
-    width:90px;
-    font-size:14px;
-    font-weight:bold;
-    padding-top:2px;
+.jDatepicker-label {
+  text-align:center;
+  float:left;
+  width:90px;
+  font-size:14px;
+  font-weight:bold;
+  padding-top:2px;
 }
 
 .jDatepicker-nextnav {
-    display:inline;
-    float:right;
-    width:50px;
+  display:inline;
+  float:right;
+  width:50px;
 }
 
 .jDatepicker-days td {
-    font-weight:bold;
-    font-size:12px;
+  font-weight:bold;
+  font-size:12px;
 }
 
 .jDatepicker-nextnav span {
-    float:right;
+  float:right;
 }
 
 .jDatepicker-table td {
-    background:#eee;
-    font-size:12px;
-    text-align:center;
-    padding:4px auto;
+  background:#eee;
+  font-size:12px;
+  text-align:center;
+  padding:4px auto;
 }
 
-.jDatepicker-table td.jDatepicker-click{
-    cursor:pointer;
-    border:1px solid #ddd;
+.jDatepicker-table td.jDatepicker-click {
+  cursor:pointer;
+  border:1px solid #ddd;
 }
 
 .jDatepicker-table td.jDatepicker-hover {
-    border:1px solid #aaa;
+  border:1px solid #aaa;
 }
 
 .jDatepicker-table td.jDatepicker-selected,
 .jDatepicker-table td.jDatepicker-today {
-    font-weight:bold;
-    background:none;
+  font-weight:bold;
+  background:none;
 }
-	
