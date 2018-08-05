@@ -6,7 +6,7 @@
  */
 ;
 (function($) {
-  // 'use strict';
+  'use strict';
   $.fn.jDatepicker = function(opts) {
     opts = $.extend({
       separator: '-',
@@ -121,8 +121,7 @@
       lngDayNames = ['शनिबार', 'आइतबार', 'सोमबार', 'मंगलबार', 'बुधबार', 'बिहिबार', 'शुक्रबार', 'शनिबार'],
       defaults = toBS(ref.getFullYear(), ref.getMonth() + 1, ref.getDate()),
       uid = Math.ceil(Math.random() * 10000),
-      dpuid = '.jDp-' + uid
-    ;
+      dpuid = '.jDp-' + uid;
 
     $('<div class="jDatepicker-div jDp-' + uid + '">').appendTo('body');
 
@@ -153,10 +152,13 @@
       var t = $('.jDatepicker-table', $(dpuid)),
         y = t.data('year'),
         m = t.data('month'),
-        d = $(this).data('day')
-      ad = toAD(y, m, d), sep = opts.separator;
+        d = $(this).data('day'),
+        ad = toAD(y, m, d),
+        sep = opts.separator;
+
       dpElm.val(y + sep + m + sep + d);
       adElm.val(ad[0] + sep + ad[1] + sep + ad[2]);
+
       $(dpuid).hide();
     });
 
@@ -173,8 +175,9 @@
     });
 
     $(dpuid).delegate('.jDatepicker-next', 'click', function() {
-      var a = attr();
-      y = a[0], m = a[1], m = m + 1;
+      var a = attr(),
+        y = a[0],
+        m = a[1] + 1;
       if (m > 12) {
         m = 1;
         y = y + 1;
@@ -183,8 +186,9 @@
     });
 
     $(dpuid).delegate('.jDatepicker-prev', 'click', function() {
-      var a = attr();
-      y = a[0], m = a[1], m = m - 1;
+      var a = attr(),
+        y = a[0],
+        m = a[1] - 1;
       if (m < 1) {
         m = 12;
         y = y - 1;
@@ -204,7 +208,7 @@
 
     $(document).click(function(event) {
       if ($(dpuid).is(':visible')) {
-        target = event.target || event.srcElement || event.currentTarget;
+        var target = event.target || event.srcElement || event.currentTarget;
         if ($(dpuid).find(target).length < 1) {
           if ($(target).hasClass('jDatepicker-controls') || $(target).hasClass('jDatepicker-element'))
             $.noop();
@@ -234,35 +238,36 @@
       if (!y) y = yy;
       if (!m) m = mm;
 
-      $fd = _dpFd(y, m) - 1;
-      max = (npDates[y - 2000][m - 1] + 28);
-      $limit = ($fd + max > 35) ? 42 : 35;
+      var nd = npDay(y, m) - 1,
+        max = (npDates[y - 2000][m - 1] + 28),
+        limit = (nd + max > 35) ? 42 : 35;
 
-      out = '<div class="jDatepicker-nav">\
+      var out = '<div class="jDatepicker-nav">\
         <div class="jDatepicker-prevnav"><span class="jDatepicker-controls ' + (y <= 2001 ? 'disabled' : 'jDatepicker-prevyear') + '">&laquo;</span>\
         <span class="jDatepicker-controls ' + (y == 2001 && m <= 1 ? 'disabled' : 'jDatepicker-prev') + '">&lsaquo;</span></div>\
         <div class="jDatepicker-label">' + npNum(y) + ' ' + monthNames[m] + '</div><div class="jDatepicker-nextnav"><span class="jDatepicker-controls ' + ((y >= 2090) ? 'disabled' : 'jDatepicker-nextyear') + '">&raquo;</span>\
         <span class="jDatepicker-controls ' + (y == 2090 && m >= 12 ? 'disabled' : 'jDatepicker-next') + '">&rsaquo;</span></div>\
-      </div>';
+      </div>',
+        i = 0,
+        j = 0,
+        tr = false;
 
       out += '<table class="jDatepicker-table" data-year="' + y + '" data-month="' + ((m.length == 1 || m < 10) ? '0' + m : m) + '" cellpadding="1" cellspacing="1">';
       out += '<thead><tr class="jDatepicker-days">';
 
-      var i = 0,
-        tr = false;
       while (i++ < 7) {
         out += "<th title='" + lngDayNames[i] + "'> " + dayNames[i] + " </th>";
       };
 
       out += '</tr></thead><tbody>';
 
-      for (i = 0, j = 0; i < $limit; i++) {
+      for (i = 0, j = 0; i < limit; i++) {
         tr = false;
         if (i % 7 == 0) {
           tr = true;
           out += '<tr>';
         }
-        if (i == $fd) j = 1;
+        if (i == nd) j = 1;
         out += "<td class='" + ((j == dd && m == mm && y == yy) ? 'jDatepicker-selected ' : '') + (j ? 'jDatepicker-click ' : '') + "' data-day='" + ((j.length == 1 || j < 10) ? '0' + j : j) + "'>" + ((j > 0 && j <= max) ? npNum(j) : '') + '</td>';
         if (j > 0) j++;
         if (j == max + 1) j = 0;
@@ -276,7 +281,7 @@
       return out;
     };
 
-    function _dpFd(y, m) {
+    function npDay(y, m) {
       var days = 0;
       y = y - 2000;
 
@@ -295,7 +300,8 @@
 
     function npNum(n) {
       var n = n + '',
-        nep = '';
+        nep = '',
+        d = '';
       for (var k = 0; k < n.length; k++) {
         d = n.substr(k, 1);
         nep += (d == '0' || num(d) < 10) ? npNums[d] : d;
@@ -332,8 +338,8 @@
     function toBS(y, m, d) {
       // if ( y < 1944 || y > 2090 ) return [0000,0,0,0];
       var enDays = d,
-        nDay = 0;
-      for (var year = ADbase[0], month = ADbase[1];; month++) {
+        nDay, nDay, year, month, day;
+      for (year = ADbase[0], month = ADbase[1];; month++) {
         if (y == year && m == month) break;
         if (month > 12) {
           month = 1;
@@ -365,7 +371,7 @@
     function toAD(y, m, d) {
       //  if ( y < 2001 || y > 2090 ) return [0000,0,0,0];
       var npDays = d,
-        nDay = 0;
+        nDay, year, month, day;
 
       for (year = BSbase[0], month = BSbase[1];; month++) {
         if (y == year && m == month) break;
